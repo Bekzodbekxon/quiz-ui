@@ -10,7 +10,10 @@ const router = new Router({
   base: process.env.BASE_URL,
   // mode: 'history',
   scrollBehavior() {
-    return { x: 0, y: 0 }
+    return {
+      x: 0,
+      y: 0,
+    }
   },
   routes: [
     {
@@ -389,6 +392,13 @@ const router = new Router({
           },
           component: () => import('./views/advanced/colors'),
         },
+        {
+          path: '/test-creator/project',
+          meta: {
+            title: 'test / creator',
+          },
+          component: () => import('./views/test-creator/project'),
+        },
       ],
     },
 
@@ -445,7 +455,9 @@ const router = new Router({
 
     // Redirect to 404
     {
-      path: '*', redirect: 'auth/404', hidden: true,
+      path: '*',
+      redirect: 'auth/404',
+      hidden: true,
     },
   ],
 })

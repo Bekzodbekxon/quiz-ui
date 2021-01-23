@@ -3,13 +3,14 @@ import store from 'store'
 import { notification } from 'ant-design-vue'
 
 const apiClient = axios.create({
-  baseURL: 'http://185.196.214.66:8080/api/',
+  baseURL: 'http://localhost:8081/',
+  // baseURL: 'http://185.196.214.66:8080/api/',
   // timeout: 1000,
   // headers: { 'X-Custom-Header': 'foobar' }
 })
 
 apiClient.interceptors.request.use(request => {
-  const accessToken = store.get('accessToken')
+  const accessToken = store.get('token')
   if (accessToken) {
     request.headers.Authorization = `Bearer ${accessToken}`
     request.headers.AccessToken = accessToken

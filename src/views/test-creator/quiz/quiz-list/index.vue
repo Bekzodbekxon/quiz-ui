@@ -1,7 +1,7 @@
 <template>
-  <b-table :rowSelection="rowSelection" :columns="columns" :dataSource="data">
-    <a slot="name" slot-scope="text" href="javascript:;">{{text}}</a>
-  </b-table>
+  <a-table :rowSelection="rowSelection" :columns="columns" :dataSource="data" size="small">
+    <a slot="name" slot-scope="text" href="javascript:;">{{ text }}</a>
+  </a-table>
 </template>
 <script>
 const columns = [{
@@ -42,6 +42,7 @@ export default {
     return {
       data,
       columns,
+      header: 'Vue Top Artists',
     }
   },
   computed: {
@@ -58,6 +59,14 @@ export default {
         }),
       }
     },
+  },
+  methods: {
+    toggleHeader(x) {
+      this.header = x
+    },
+  },
+  props: {
+
   },
 }
 </script>
