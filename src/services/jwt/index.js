@@ -2,7 +2,6 @@ import apiClient from '@/services/axios'
 import store from 'store'
 
 export async function login(username, password) {
-  debugger
   return apiClient
     .post('auth/authentication', {
       username,
@@ -10,7 +9,6 @@ export async function login(username, password) {
     })
     .then(response => {
       if (response) {
-        debugger
         const { token } = response.data
         if (token) {
           store.set('accessToken', token)
@@ -43,7 +41,6 @@ export async function register(email, password, name) {
 }
 
 export async function currentAccount() {
-  debugger
   return apiClient
     .get('/auth/account')
     .then(response => {

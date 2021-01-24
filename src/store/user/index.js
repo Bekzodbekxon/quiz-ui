@@ -49,7 +49,6 @@ export default {
 
       const login = mapAuthProviders[rootState.settings.authProvider].login
       login(username, password).then(success => {
-        debugger
         if (success) {
           // dispatch('LOAD_CURRENT_ACCOUNT')
           Vue.prototype.$notification.success({
@@ -88,7 +87,6 @@ export default {
       })
     },
     LOAD_CURRENT_ACCOUNT({ commit, rootState }) {
-      debugger
       commit('SET_STATE', {
         loading: true,
       })

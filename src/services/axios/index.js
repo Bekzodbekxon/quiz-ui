@@ -10,10 +10,10 @@ const apiClient = axios.create({
 })
 
 apiClient.interceptors.request.use(request => {
-  const accessToken = store.get('token')
+  const accessToken = store.get('accessToken')
   if (accessToken) {
-    request.headers.Authorization = `Bearer ${accessToken}`
-    request.headers.AccessToken = accessToken
+    request.headers.Authorization = `${accessToken}`
+    // request.headers.AccessToken = accessToken
   }
   return request
 })

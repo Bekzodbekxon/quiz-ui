@@ -13,24 +13,21 @@
       :foot-clone="footClone"
       :items="items"
       :fields="fields"
-      @row-selected="rowSelected"
+      @row-selected="selectedProject"
       :select-mode="selectMode"
     ></b-table>
-    {{ selected }}
   </div>
 </template>
 
 <script>
+import * as projectServices from '@/services/project'
+
 export default {
   name: 'TableBootstrapBasic',
   data() {
     return {
-      fields: ['projects'],
-      items: [
-        { projects: 'Dickerson' },
-        { projects: 'Larsen' },
-        { projects: 'Geneva' },
-      ],
+      fields: ['project'],
+      items: [],
       striped: false,
       bordered: false,
       borderless: true,
@@ -43,13 +40,18 @@ export default {
       onclick: true,
       footClone: false,
       selectMode: 'single',
-      selected: '',
     }
   },
   methods: {
-    rowSelected(items) {
-      this.selected = items
+    selectedProject(items) {
+      debugger
+      this.$emit('sendData', items[0].id)
     },
+  },
+  mounted: function () {
+    projectServices.list().then(data => {
+      this.items = data
+    })
   },
 }
 </script>

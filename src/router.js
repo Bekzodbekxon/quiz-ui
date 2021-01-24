@@ -397,7 +397,7 @@ const router = new Router({
           meta: {
             title: 'test / creator',
           },
-          component: () => import('./views/test-creator/project'),
+          component: () => import('./views/test-creator/quiz'),
         },
       ],
     },
@@ -463,17 +463,13 @@ const router = new Router({
 })
 
 router.beforeEach((to, from, next) => {
-  debugger
   if (to.matched.some(record => record.meta.authRequired)) {
-    debugger
     if (!localStorage.getItem('accessToken')) {
-      debugger
       next({
         path: '/auth/login',
         query: { redirect: to.fullPath },
       })
     } else {
-      debugger
       next()
     }
   } else {
