@@ -63,7 +63,6 @@ mock.onPost('/api/auth/register').reply(request => {
 })
 
 mock.onGet('/api/auth/account').reply(request => {
-  debugger
   const { AccessToken } = request.headers
   if (AccessToken) {
     const { id } = jwt.verify(AccessToken, jwtConfig.secret)

@@ -36,6 +36,19 @@ export const getMenuData = [
     category: true,
     title: 'Apps & Pages',
   },
+
+  {
+    title: 'Quiz',
+    key: 'products',
+    icon: 'fe fe-database',
+    children: [
+      {
+        title: 'Products',
+        key: 'appsProfile',
+        url: '/test-creator/project',
+      }],
+  },
+
   {
     title: 'Apps',
     key: 'apps',
