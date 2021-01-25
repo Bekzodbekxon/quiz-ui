@@ -4,6 +4,9 @@
       <div class="row">
         <div class="col-xl-4 col-lg-12">
           <div class="card">
+            <div class="card-header">
+              Featured
+            </div>
             <div class="card-body">
               <projects-list v-on:sendData="updateData($event)"/>
             </div>
@@ -11,8 +14,11 @@
         </div>
         <div class="col-xl-8 col-lg-12">
           <div class="card">
+            <div class="card-header">
+              Quizes
+            </div>
             <div class="card-body">
-              <strong>Quizzes</strong>
+<!--              <strong>Quizzes</strong>-->
               <a-table :rowSelection="rowSelection" :columns="columns" :dataSource="data" size="small">
                 <a slot="name" slot-scope="text" href="javascript:;">{{ text }}</a>
               </a-table>
